@@ -14,7 +14,8 @@ export class AppController {
   }
 
   @Post()
-  receiveEvent(@Body() event: any): void {
+  receiveEvent(@Body() event: any): string {
     this.logger.log('receiveEvent ' + JSON.stringify(event));
+    return '';
   }
 }
