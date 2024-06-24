@@ -14,8 +14,21 @@ export class AppController {
   }
 
   @Post()
-  receiveEvent(@Body() event: any): string {
-    this.logger.log('receiveEvent ' + JSON.stringify(event));
-    return '';
+  receiveEvent(@Body() event: any): any {
+    if (Array.isArray(event)) {
+      for (const ev of event) {
+        if (
+          ev.eventType === 'Microsoft.EventGrid.SubscriptionValidationEvent'
+        ) {
+          return { validationResponse: ev.validationCode };
+        } else {
+          this.logger.log('eventType ' + ev.eventType);
+          this.logger.log(JSON.stringify(event));
+        }
+      }
+    } else {
+      this.logger.log('receiveEvent ' + JSON.stringify(event));
+      return '';
+    }
   }
 }
