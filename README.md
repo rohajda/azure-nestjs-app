@@ -3,7 +3,8 @@
 </p>
 
 ```bash
-curl -X POST -H "Content-type: application/json"  -d '{"eventType": "DOCTORS", "dockerId": 5}'  http://localhost:3000/
+curl -X POST -H "Content-type: application/json"  -d '{"eventType": "DOCTORS", "dockerId": 5}'  http://localhost:8080/
+curl -X POST -H "Content-type: application/json"  -d '{"eventType": "DOCTORS", "dockerId": 5}'  https://azure-nestjs-app.azurewebsites.net/
 ``` 
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
