@@ -21,9 +21,8 @@ export class AppController {
         if (
           ev.eventType === 'Microsoft.EventGrid.SubscriptionValidationEvent'
         ) {
-          this.logger.log(JSON.stringify(ev));
-          this.logger.log('WEBHOOK VALIDATION ' + ev.validationCode);
-          return { validationResponse: ev.validationCode };
+          this.logger.log('WEBHOOK VALIDATION ' + ev.data.validationCode);
+          return { validationResponse: ev.data.validationCode };
         } else {
           this.logger.log('eventType ' + ev.eventType);
           this.logger.log(JSON.stringify(ev.data));
