@@ -15,6 +15,7 @@ export class AppController {
 
   @Post()
   receiveEvent(@Body() event: any): any {
+    this.logger.log('receiveEvent ' + JSON.stringify(event));
     if (Array.isArray(event)) {
       for (const ev of event) {
         if (
@@ -27,7 +28,6 @@ export class AppController {
         }
       }
     } else {
-      this.logger.log('receiveEvent ' + JSON.stringify(event));
       return '';
     }
   }
