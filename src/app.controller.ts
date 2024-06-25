@@ -15,7 +15,7 @@ export class AppController {
 
   @Post()
   receiveEvent(@Body() event: any): any {
-    this.logger.log('receiveEvent ' + JSON.stringify(event));
+    this.logger.log('receiveEvent from Event Grid');
     if (Array.isArray(event)) {
       for (const ev of event) {
         if (
